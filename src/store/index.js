@@ -32,6 +32,24 @@ export const useCronometroStore = create((set) => ({
     set({
         modoCronometro: novoModo,
         tempoEmSegundos: novoModo.tempoInicialEmSegundos,
-    })
+    });
     },
+    intervaloId: null,
+
+    iniciarCronometro: () => {
+        const novoId = setInterval(computarContagemRegressiva, 1000);
+
+        set({ intervaloId: novoId})
+    },
+
+
 }));
+
+function computarContagemRegressiva() {
+    const tempoAtual = useCronometroStore.getState().tempoEmSegundos;
+    if (tempoAtual > 0) {
+        // diminuir o tempo
+    } else {
+        // pausar e redefinir;
+    }
+}
