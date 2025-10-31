@@ -11,6 +11,7 @@ export default function BotaoCronometro() {
      const intervaloId = useCronometroStore((estado) => estado.intervaloId);
      const iniciarCronometro = useCronometroStore((estado) => estado.iniciarCronometro);
 
+
      const textoIniciarOuPausar = iniciarCronometro ? "pausar" : "iniciar";
      const inconeIniciarOuOausar = intervaloId ? pauseImg : play_arrowImg;
 
