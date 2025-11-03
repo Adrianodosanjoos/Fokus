@@ -10,15 +10,23 @@ export default function BotaoCronometro() {
 
      const intervaloId = useCronometroStore((estado) => estado.intervaloId);
      const iniciarCronometro = useCronometroStore((estado) => estado.iniciarCronometro);
+     const pausarCronometro = useCronometroStore((estado) => estado.pausarCronometro);
 
 
      const textoIniciarOuPausar = iniciarCronometro ? "pausar" : "iniciar";
      const inconeIniciarOuOausar = intervaloId ? pauseImg : play_arrowImg;
-
+     
+     function iniciarOuPausar() {
+      if (!intervaloId) {
+        iniciarCronometro();
+      } else {
+        pausarCronometro();
+      }
+     }
 
   return (
     <div className={styles["cronometer__primary-button-wrapper"]}>
-      <button className={styles["cronometer__primary-button"]} onClick={iniciarCronometro}>
+      <button className={styles["cronometer__primary-button"]} onClick={iniciarOuPausar}>
         <img className={styles["cronometer__primary-button-icon"]} 
         src={inconeIniciarOuOausar} 
         alt="" />

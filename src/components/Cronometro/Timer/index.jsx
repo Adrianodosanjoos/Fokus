@@ -10,3 +10,5 @@ export default function Timer() {
   })
   return <div className={styles["cronometer-timer"]}>{tempoFormatado}</div>;
 }
+
+
