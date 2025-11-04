@@ -1,4 +1,7 @@
 import { create } from "zustand";
+import audioTempoFinalizadoSom from "/src/assets/sons/beep.mp3";
+
+const audioTempoFinalizado = new Audio(audioTempoFinalizadoSom);
 
 export const MODO_CRONOMETRO = {
     FOCO: {
@@ -58,6 +61,7 @@ decrementarTempo();
  } else {
        pausarCronometro();
        redefinirTempo();
+       audioTempoFinalizado.play();
     }
 }
 
